@@ -10,10 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/mndowne/shorthandurl.git"
   },
-  "dependencies":{
-    "express":"*"
-    },
-
+  "dependencies": {
+    "express": "*",
+    "express-handlebars": "^3.0.0"
+  },
   "author": "mndowne",
   "license": "ISC",
   "bugs": {

@@ -1,5 +1,3 @@
-//var bodyParser = require('body-parser');
-//var urlencodedParser = bodyParser.urlencoded({extended: false});
 var keys = 1;
 var urls = {"1" : "https://www.freecodecamp.com"};
 var list = [];
@@ -34,9 +32,9 @@ app.get('/*', function (req,res){
   {
     keys++; 
     urls[keys] = req.params[0]; 
-    shorthand = "https://www.shorthand.herokuapp.com/" + keys ;
+    shorthand = "shorthandurl.herokuapp.com/" + keys ;
     
-    var str = {item: "\n{original_url: " + req.params[0] + ",\n shorthand_url: https://shorthand.herokuapp.com/" + keys + "}"};
+    var str = {item: "\n{original_url: " + req.params[0] + ",\n shorthand_url: shorthandurl.herokuapp.com/" + keys + "}"};
     list.push(str);
 
   }

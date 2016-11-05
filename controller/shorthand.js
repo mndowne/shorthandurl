@@ -1,9 +1,16 @@
+//var bodyParser = require('body-parser');
+//var urlencodedParser = bodyParser.urlencoded({extended: false});
+var keys = 1;
+var urls = {"1" : "https://www.freecodecamp.com"};
+var list = [];
 
-var urls = {"1" : "https://www.youtube.com"};
 
 module.exports = function(app){
 
-//app.get('/4' , function (req,res){     });
+app.get('/' , function (req,res){  
+  console.log("its trying to render my page");
+  res.render('index', {url: list} );
+});
 
 app.get('/*', function (req,res){
  
@@ -23,13 +30,23 @@ app.get('/*', function (req,res){
      shorthand = null;
 
   }
-  else{
+  else 
+  {
+    keys++; 
+    urls[keys] = req.params[0]; 
+    shorthand = "https://www.shorthand.herokuapp.com/" + keys ;
+    
+    var str = {item: "\n{original_url: " + req.params[0] + ",\n shorthand_url: https://shorthand.herokuapp.com/" + keys + "}"};
+    list.push(str);
+
+  }
 
     var jsonOb = { original_url: req.params[0],
                  shorthand_url: shorthand };
     res.json(jsonOb);
 
-  }
+
+  
 });
 
 };

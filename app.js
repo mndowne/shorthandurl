@@ -8,7 +8,7 @@ app.set('view engine', 'handlebars');
 
 app.set('port',(process.env.PORT || 3000));
 
-app.use(express.static('.'));
+app.use(express.static('./posts'));
 
 //fire controllers
 shorthand(app);
